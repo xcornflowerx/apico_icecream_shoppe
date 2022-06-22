@@ -14,7 +14,6 @@ end
 function ready()
 end
 
-
 function init()
 	api_set_devmode(true)
 	define_cornflower()
