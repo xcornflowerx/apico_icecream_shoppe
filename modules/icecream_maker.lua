@@ -6,7 +6,7 @@ function define_icecream_maker()
         id = "icecream_maker",
         name = "Ice Cream Maker",
         category = "Crafting",
-        tooltip = "Lets you make frozen treats from snow",
+        tooltip = "Lets you make ice cream",
         shop_buy = 100,
         shop_sell = 100,
         layout = {
@@ -133,7 +133,7 @@ function icecream_maker_tick_callback(menu_id)
 
 		-- check that there is space in the output slots
 		-- note that output slots indexes for the ice cream maker menu are 4,5,6
-		local current_flavour = icecream_toppings_flavours_map[input_toppings["item"]]
+		local current_flavour = get_icecream_flavour_by_topping(input_toppings["item"])
 		local output_slots = api_get_slots(menu_id)
 		local target_slot = nil
 		for i=4,6 do
