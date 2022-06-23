@@ -7,15 +7,18 @@ function register()
 	return {
 		name = MOD_NAME,
 		hooks = {"ready"},
-		modules = {"cornflower"}
+		modules = {"cornflower", "icecream_dishes", "icecream_maker"}
 	}
 end
 
 function ready()
+	-- this is where we would set things up if we had anything to set up :)
 end
 
 function init()
-	api_set_devmode(true)
 	define_cornflower()
+	define_iceream_dishes()
+	define_icecream_maker()
 	return "Success"
 end
+
