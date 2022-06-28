@@ -1,16 +1,16 @@
 -- variables for mapping toppings to flavour names, prices, etc.
 icecream_topping_prices = {
-	flower131 = 0,
-	morningdew = 1.5,
-	honeydew = 1,
-	spice1 = 2,
-	spice2 = 2,
-	spice3 = 2,
-	spice4 = 2.5,
-	spice5 = 2.5,
-	icecream_shoppe_cookiedough = 3.5,
-	icecream_shoppe_saltedcaramel = 3.5,
-	icecream_shoppe_mintchocchip = 3.5
+	flower131 = 2,
+	morningdew = 3,
+	honeydew = 3,
+	spice1 = 12,
+	spice2 = 12,
+	spice3 = 12,
+	spice4 = 12,
+	spice5 = 12,
+	icecream_shoppe_cookiedough = 7,
+	icecream_shoppe_saltedcaramel = 7,
+	icecream_shoppe_mintchocchip = 7
 }
 
 icecream_toppings = {
@@ -141,7 +141,7 @@ end
 	Calculates the price of an ice cream with a given topping.
 --]]
 function get_icecream_shop_sell_price(topping)
-	icecream_base_price = 3
+	icecream_base_price = 8
 	return icecream_base_price + icecream_topping_prices[topping]
 end
 
@@ -301,8 +301,8 @@ function define_secret_toppings()
 		name = "Cookiedough",
 		category = "Ice Cream Topping",
 		tooltip = "One of the secret toppings for ice cream",
-		shop_buy = 1,
-		shop_sell = 1
+		shop_buy = 3,
+		shop_sell = 3
 	}, "sprites/icecream/topping09.png")
 
 	-- topping10: salted caramel
@@ -311,8 +311,8 @@ function define_secret_toppings()
 		name = "Salted Honey Caramel",
 		category = "Ice Cream Topping",
 		tooltip = "One of the secret toppings for ice cream",
-		shop_buy = 1,
-		shop_sell = 1
+		shop_buy = 3,
+		shop_sell = 3
 	}, "sprites/icecream/topping10.png")
 
 	-- topping11: mint chocolate chip
@@ -321,8 +321,8 @@ function define_secret_toppings()
 		name = "Mint Chocolate",
 		category = "Ice Cream Topping",
 		tooltip = "One of the secret toppings for ice cream",
-		shop_buy = 1,
-		shop_sell = 1
+		shop_buy = 3,
+		shop_sell = 3
 	}, "sprites/icecream/topping11.png")
 end
 
