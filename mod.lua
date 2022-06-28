@@ -1,12 +1,17 @@
 MOD_NAME = "icecream_shoppe"
 KNOWN_SECRET_FLAVOURS_TABLE = {}
-
+npcornflower = nil
 function register()
 	return {
 		name = MOD_NAME,
-		hooks = {},
+		hooks = {"ready"},
 		modules = {"cornflower", "cornflower_flower", "icecream_dishes", "icecream_maker"}
 	}
+end
+
+function ready()
+	-- make sure the rascal exists
+	npcornflower = get_cornflower()
 end
 
 function init()
@@ -25,7 +30,7 @@ end
 function data(ev, data)
 	if ev == "LOAD" and data ~= nil then
 		KNOWN_SECRET_FLAVOURS_TABLE = data["known_secret_flavours"]
-		override_icecream_shoppe_stock(get_cornflower(), KNOWN_SECRET_FLAVOURS_TABLE)
+		override_icecream_shoppe_stock(npcornflower, KNOWN_SECRET_FLAVOURS_TABLE)
 	elseif ev == "SAVE" then
 		if data == nil then
 			api_log("data", "failed to update our data.json")

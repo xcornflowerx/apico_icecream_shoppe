@@ -75,15 +75,15 @@ function get_cornflower()
     -- let there be corn(flower) if she's not been spawned already
     npcornflower = api_get_menu_objects(nil, "npc131")
     if #npcornflower == 0 then
-        player = api_get_player_position()
-        api_create_obj("npc131", player["x"] + 16, player["y"] - 32)
+        player_pos = api_get_player_position()
+        api_create_obj("npc131", player_pos["x"] + 16, player_pos["y"] - 32)
     elseif #npcornflower > 1 then
         -- remove duplicates
         for i=2, #npcornflower do
             api_destroy_inst(npcornflower[i]["id"])
         end
     end
-    return npcornflower
+    return api_get_menu_objects(nil, "npc131")
 end
 
 --[[
@@ -104,6 +104,10 @@ end
     on game load.
 ]]
 function override_icecream_shoppe_stock(npcornflower, KNOWN_SECRET_FLAVOURS_TABLE)
+    if npcornflower == nil then
+        npcornflower = get_cornflower()
+    end
+
     local shop_id = api_gp(npcornflower[1]["menu_id"], "shop")
     -- if we have more than 10 items to sell in the future then
     -- we'll change how the items for sale are assigned to the shop
