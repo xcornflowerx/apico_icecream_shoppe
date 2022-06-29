@@ -12,7 +12,7 @@ function define_icecream_maker()
         layout = {
             {8, 17, "Input", icecream_toppings},
             {8, 40, "Input", {"snowball"}},
-            {71, 33, "Input", {"icecream_shoppe_icecream_dish01"}},
+            {71, 35, "Input", {"icecream_shoppe_icecream_dish01"}},
             {99, 17, "Output"},
             {99, 40, "Output"},
             {99, 63, "Output"},
