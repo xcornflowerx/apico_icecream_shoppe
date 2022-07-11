@@ -1,4 +1,4 @@
-ICECREAM_SHOPPE_STOCK = {"icecream_shoppe_icecream_maker", "seed131", "icecream_shoppe_icecream_dish01"}
+ICECREAM_SHOPPE_STOCK = {"icecream_shoppe_icecream_maker", "seed131", "icecream_shoppe_icecream_dish01", "icecream_shoppe_icecream_dish01b"}
 
 --[[
     Not to be confused with the script where we define a new flower object :)
@@ -12,7 +12,7 @@ function define_cornflower()
         tooltip = "Hey there!",
         shop = true,
         walking = true,
-        stock = {"seed131", "icecream_shoppe_icecream_dish01"},
+        stock = {"seed131", "icecream_shoppe_icecream_dish01", "icecream_shoppe_icecream_dish01b"},
         specials = {"icecream_shoppe_icecream_maker", "icecream_shoppe_icecream_maker", "icecream_shoppe_icecream_maker"},
         dialogue = {
             "Wanna learn how to make some ice cream yourself?",
@@ -68,6 +68,7 @@ function get_cornflower()
     all_slots = api_get_slots(player)
     for i=1,#all_slots do
         if all_slots[i]["item"] == "npc131" then
+            api_log("get_cornflower", "looking in pockets for cornflower")
             api_slot_clear(all_slots[i]["id"])
         end
     end
@@ -78,8 +79,8 @@ function get_cornflower()
         player_pos = api_get_player_position()
         api_create_obj("npc131", player_pos["x"] + 16, player_pos["y"] - 32)
     elseif #npcornflower > 1 then
-        -- remove duplicates
-        for i=2, #npcornflower do
+        -- remove duplicates but get rid of the oldest instances first
+        for i=1, (#npcornflower - 1) do
             api_destroy_inst(npcornflower[i]["id"])
         end
     end
